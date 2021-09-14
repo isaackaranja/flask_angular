@@ -26,3 +26,12 @@ li a:hover {
 li  a:active {
     color: blue;
 }  
+
+table {
+    width: 100%;
+  }
+  
+  button {
+    margin: 16px 8px;
+  }
+  

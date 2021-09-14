@@ -1,0 +1,15 @@
+<p>questions works!</p>
+
+<div class="sub_container">
+    <button class="subject" *ngFor="let subject of subjects" (click)="subject_questions(subject.id)">{{subject.name}}</button>
+</div>
+
+<ul class="list_questions">
+    <li *ngFor="let question of filtered_questions" (click)="changeIsvisible()">
+        {{question.qtn}}
+        <textarea type="textarea" (change)="answerChanged(question.id, $event)"></textarea>
+        <button type="submit" (click)="submit(question.id)">submit</button>
+    </li>
+    
+</ul>
+<button type="submit" (click)="submit_all()">submit</button>

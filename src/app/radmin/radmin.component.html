@@ -1,0 +1,45 @@
+<p>radmin works!</p>
+<ul *ngFor="let question of questions">
+  <li (click)="qtnClicked(question)">
+    {{question.qtn}}
+    <div *ngIf="question.answer[0]">
+      <ul>
+        <li>{{question.answer[0].ans}}</li>
+      </ul>
+      <ul *ngFor="let ansa of question.answer.ans">
+        <li>
+          this is ans{{ansa}}
+        </li>
+      </ul>
+
+    </div>
+    
+  </li>
+
+</ul>
+
+Question: <input type="text-field" name="qtn" [(ngModel)]="selectedQuestion.qtn"><br>
+subject_id: <input type="number" name="subject_id" [(ngModel)]="selectedQuestion.subject_id"><br>
+<!-- person_id: <input type="number" name="person_id" [(ngModel)]="selectedQuestion.person_id"> -->
+<button (click)="updateQuestion()">Update Question</button>
+<button (click)="postQuestion()">Post Question</button>
+<button (click)="deleteQuestion()">Delete</button>
+
+<h1>show this text</h1>
+<div>
+  <p>subjects: {{subjects}}</p>
+  <button hidden #nameRef (click)="subject_questions(1)">geography</button>
+  <button *ngFor="let subject of subjects" (click)="subject_questions(subject.id)">{{subject.name}}</button>
+</div>
+<p> should be here </p>
+<p> dispay columns {{(displayedColumns)}}</p>
+
+<table mat-table [dataSource]="data" class="mat-elevation-z8">
+  <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

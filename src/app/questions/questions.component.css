@@ -1,0 +1,20 @@
+.subject{
+    padding: 17px 25px;
+}
+
+.sub_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.list_questions{
+    margin-left: 50px;
+    list-style-type: none;
+}
+
+.list_questions li{
+    padding: 20px;
+    font-size: 16px;
+}
